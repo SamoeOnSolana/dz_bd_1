@@ -1,0 +1,51 @@
+@page "{id:int}"
+@model App1.Pages.Participants1.DetailsModel
+@{
+    ViewData["Title"] = "Деталі учасника";
+}
+
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Деталі учасника</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">@Model.Participant.FullName</h2>
+        <p class="text-gray-600 mb-2"><strong>Email:</strong> @Model.Participant.Email</p>
+        <p class="text-gray-600"><strong>ID:</strong> @Model.Participant.Id</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Події на які зареєстрований:</h3>
+        @if (Model.Participant.EventParticipants.Any())
+        {
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Назва</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Дата</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Місце</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach (var ep in Model.Participant.EventParticipants)
+                    {
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">@ep.Event.Id</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">@ep.Event.Title</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">@ep.Event.Date.ToString("dd.MM.yyyy")</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">@ep.Event.Location</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-gray-600">Немає зареєстрованих подій</p>
+        }
+    </div>
+
+    <div class="mt-6">
+        <a href="/Events1" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Повернутися</a>
+    </div>
+</div>

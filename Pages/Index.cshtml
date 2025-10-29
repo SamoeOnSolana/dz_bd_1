@@ -1,0 +1,32 @@
+﻿@page
+@model App1.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center py-16">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Ласкаво просимо!</h1>
+    <p class="text-xl text-gray-600 mb-12">EF Core Many-to-Many та One-to-Many</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <a href="/Orders1" class="bg-blue-500 text-white p-6 rounded-lg hover:bg-blue-600 transition duration-300">
+            <h3 class="text-xl font-bold mb-2">📦 Замовлення та товари</h3>
+            <p class="text-sm">Many-to-Many зв'язок</p>
+        </a>
+        
+        <a href="/Events1" class="bg-green-500 text-white p-6 rounded-lg hover:bg-green-600 transition duration-300">
+            <h3 class="text-xl font-bold mb-2">🎉 Події та учасники</h3>
+            <p class="text-sm">Many-to-Many зв'язок</p>
+        </a>
+        
+        <a href="/Restaurants1" class="bg-purple-500 text-white p-6 rounded-lg hover:bg-purple-600 transition duration-300">
+            <h3 class="text-xl font-bold mb-2">🍽️ Ресторани та меню</h3>
+            <p class="text-sm">One-to-Many + Many-to-Many</p>
+        </a>
+        
+        <a href="/Theory" class="bg-orange-500 text-white p-6 rounded-lg hover:bg-orange-600 transition duration-300">
+            <h3 class="text-xl font-bold mb-2">📖 Теоретичні питання</h3>
+            <p class="text-sm">Відповіді на питання</p>
+        </a>
+    </div>
+</div>

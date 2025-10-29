@@ -1,0 +1,61 @@
+@page
+@model App1.Pages.TheoryModel
+@{
+    ViewData["Title"] = "Теоретичні питання";
+}
+<div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Теоретичні питання</h1>
+    
+    <div class="space-y-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">1. Чим відрізняється One-to-Many від Many-to-Many у базах даних? Наведіть приклад з реального життя.</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <strong>One-to-Many</strong> - один запис з однієї таблиці пов'язаний з багатьма записами в іншій. Приклад: один ресторан має багато страв.
+                <strong>Many-to-Many</strong> - багато записів з однієї таблиці пов'язані з багатьма записами з іншої через проміжну таблицю. Приклад: замовлення містить кілька товарів, і товар може бути в різних замовленнях.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-green-600 mb-4">2. Яку роль відіграє метод Include() та ThenInclude() у EF Core? Чому інколи без них дані не підтягуються?</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <strong>Include()</strong> використовується для Eager Loading - завантажує пов'язані дані одразу з основним запитом.
+                <strong>ThenInclude()</strong> дозволяє завантажувати вкладені пов'язані дані (наприклад, замовлення -> товари -> категорії).
+                Без них EF Core використовує Lazy Loading або дані просто не завантажуються якщо не вказано явно.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-purple-600 mb-4">3. Яка різниця між Eager Loading, Lazy Loading та Explicit Loading?</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <strong>Eager Loading</strong> - дані завантажуються одразу разом з основним запитом через Include(). 
+                <strong>Lazy Loading</strong> - дані завантажуються автоматично при першому доступі до навігаційної властивості.
+                <strong>Explicit Loading</strong> - дані завантажуються вручну через Load() метод коли потрібно.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-orange-600 mb-4">4. Як працює пагінація в LINQ? Яка роль методів Skip() та Take()?</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <strong>Skip(N)</strong> - пропускає перші N елементів у колекції.
+                <strong>Take(N)</strong> - бере тільки N елементів після Skip.
+                Для пагінації використовується комбінація: Skip((pageNumber - 1) * pageSize).Take(pageSize) щоб отримати потрібну сторінку даних.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-red-600 mb-4">5. Як реалізувати пошук та сортування у Razor Pages? Чим відрізняються Where(), OrderBy(), OrderByDescending()?</h2>
+            <p class="text-gray-700 leading-relaxed">
+                <strong>Where()</strong> - фільтрує записи за певною умовою, повертає тільки ті що відповідають.
+                <strong>OrderBy()</strong> - сортує записи за зростанням (від меншого до більшого).
+                <strong>OrderByDescending()</strong> - сортує за спаданням (від більшого до меншого).
+                У Razor Pages використовуються параметри з query string для передачі значень фільтрів та сортування.
+            </p>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center">
+        <a href="/" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+            Повернутися на головну
+        </a>
+    </div>
+</div>
